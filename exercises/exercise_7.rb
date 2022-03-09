@@ -10,3 +10,13 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+puts "Enter a store name:"
+@input = $stdin.gets.chomp
+@new_store = Store.create(name: @input)
+
+# Display the error messages provided back from ActiveRecord.
+if @new_store.errors.any?
+  @new_store.errors.each do |attribute, message|
+    puts "Error: '#{attribute}' #{message}."
+  end
+end
